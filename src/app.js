@@ -5,6 +5,7 @@ import { config, logger } from "./config/index.js";
 import { registerSwagger } from "./plugins/swagger.js";
 import { registerCors } from "./plugins/cors.js";
 import productRoutes from "./modules/product/product.routes.js";
+import configRoutes from "./modules/config/config.routes.js";
 import { errorHandler } from "./common/middlewares/errorHandler.js";
 
 export const buildApp = () => {
@@ -33,27 +34,31 @@ export const buildApp = () => {
     await registerSwagger(fastify);
   };
 
-  // Register routes
   const registerRoutes = async () => {
-    // Health check
-    fastify.get(
-      "/health",
-      {
-        schema: {
-          tags: ["Health"],
-          summary: "Health check endpoint",
-        },
-      },
-      async () => ({
-        status: "OK",
-        timestamp: new Date().toISOString(),
-        environment: config.NODE_ENV,
-        uptime: process.uptime(),
-      })
-    );
+    await fastify.register(
+      async (app) => {
+        app.get(
+          "/health",
+          {
+            schema: {
+              tags: ["Health"],
+              summary: "Health check endpoint",
+            },
+          },
+          async () => ({
+            status: "OK",
+            timestamp: new Date().toISOString(),
+            environment: config.NODE_ENV,
+            uptime: process.uptime(),
+          })
+        );
 
-    // API routes
-    await fastify.register(productRoutes, { prefix: "/api/v1" });
+        // API routes
+        await app.register(productRoutes);
+        await app.register(configRoutes);
+      },
+      { prefix: "/api/v1" }
+    );
   };
 
   // Initialize app
