@@ -6,6 +6,7 @@ import { registerSwagger } from "./plugins/swagger.js";
 import { registerCors } from "./plugins/cors.js";
 import productRoutes from "./modules/product/product.routes.js";
 import configRoutes from "./modules/config/config.routes.js";
+import pageRoutes from "./modules/page/page.routes.js";
 import { errorHandler } from "./common/middlewares/errorHandler.js";
 
 export const buildApp = () => {
@@ -56,6 +57,7 @@ export const buildApp = () => {
         // API routes
         await app.register(productRoutes);
         await app.register(configRoutes);
+        await app.register(pageRoutes);
       },
       { prefix: "/api/v1" }
     );
