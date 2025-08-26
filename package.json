@@ -1,0 +1,21 @@
+{
+  "name": "Lettfaktura-Be",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "test": "jest",
+    "db:create": "sequelize-cli db:create",
+    "db:drop": "sequelize-cli db:drop",
+    "db:migrate": "sequelize-cli db:migrate",
+    "db:migrate:undo": "sequelize-cli db:migrate:undo",
+    "db:seed": "sequelize-cli db:seed:all",
+    "db:seed:undo": "sequelize-cli db:seed:undo:all",
+    "db:reset": "yarn db:migrate:undo && yarn db:migrate && yarn db:seed"
+  },
+  "main": "index.js",
+  "repository": "https://github.com/duytan35/Lettfaktura-Be",
+  "author": "duytan <duytan030522@gmail.com>",
+  "license": "MIT"
+}
