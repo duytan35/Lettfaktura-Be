@@ -117,18 +117,18 @@ module.exports = {
           key: "navigation",
           data: JSON.stringify({
             english: {
-              contact_us: "Contact Us",
-              order: "Order",
               home: "Home",
+              orders: "Order",
               our_customer: "Our Customers",
               about_us: "About us",
+              contact_us: "Contact Us",
             },
             svenska: {
+              home: "Hem",
+              orders: "Beställ",
+              our_customer: "Våra Kunder",
               about_us: "Om oss",
               contact_us: "Kontakta oss",
-              home: "Hem",
-              order: "Beställ",
-              our_customer: "Våra Kunder",
             },
           }),
           created_at: new Date(),

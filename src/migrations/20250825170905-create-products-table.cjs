@@ -21,19 +21,19 @@ module.exports = {
       },
       inPrice: {
         type: Sequelize.DECIMAL(10, 2),
-        allowNull: false,
+        allowNull: true,
       },
       price: {
         type: Sequelize.DECIMAL(10, 2),
-        allowNull: false,
+        allowNull: true,
       },
       unit: {
         type: Sequelize.STRING(20),
-        allowNull: false,
+        allowNull: true,
       },
       inStock: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         defaultValue: 0,
       },
       description: {

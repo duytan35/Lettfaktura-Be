@@ -20,19 +20,19 @@ const Product = sequelize.define(
     },
     inPrice: {
       type: DataTypes.DECIMAL(10, 2),
-      allowNull: false,
+      allowNull: true,
     },
     price: {
       type: DataTypes.DECIMAL(10, 2),
-      allowNull: false,
+      allowNull: true,
     },
     unit: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     inStock: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       defaultValue: 0,
     },
     description: {

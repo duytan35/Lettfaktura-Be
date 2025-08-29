@@ -16,7 +16,7 @@ export const productSchema = {
 
 const singleProductSchema = {
   type: "object",
-  required: ["articleNo", "name", "inPrice", "price", "unit"],
+  required: ["articleNo", "name"],
   properties: {
     articleNo: { type: "string", minLength: 1, maxLength: 50 },
     name: { type: "string", minLength: 1, maxLength: 255 },
