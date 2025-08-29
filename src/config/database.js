@@ -10,7 +10,7 @@ const sequelize = new Sequelize({
   password: config.DB_PASSWORD,
   dialect: "postgres",
   dialectOptions:
-    NODE_ENV === "production"
+    config.NODE_ENV === "production"
       ? {
           ssl: {
             require: true,
