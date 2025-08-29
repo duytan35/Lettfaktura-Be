@@ -16,13 +16,13 @@ export const productSchema = {
 
 const singleProductSchema = {
   type: "object",
-  required: ["articleNo", "name"],
+  required: ["name", "price"],
   properties: {
-    articleNo: { type: "string", minLength: 1, maxLength: 50 },
+    articleNo: { type: "string", minLength: 0, maxLength: 50 },
     name: { type: "string", minLength: 1, maxLength: 255 },
     inPrice: { type: "number", minimum: 0 },
     price: { type: "number", minimum: 0 },
-    unit: { type: "string", minLength: 1, maxLength: 20 },
+    unit: { type: "string", minLength: 0, maxLength: 20 },
     inStock: { type: "integer", minimum: 0, default: 0 },
     description: { type: "string", maxLength: 1000 },
   },
@@ -51,7 +51,7 @@ export const updateProductSchema = {
   body: {
     type: "object",
     properties: {
-      articleNo: { type: "string", minLength: 1, maxLength: 50 },
+      articleNo: { type: "string", minLength: 0, maxLength: 50 },
       name: { type: "string", minLength: 1, maxLength: 255 },
       inPrice: { type: "number", minimum: 0 },
       price: { type: "number", minimum: 0 },

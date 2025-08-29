@@ -11,8 +11,7 @@ const Product = sequelize.define(
     },
     articleNo: {
       type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
+      allowNull: true,
     },
     name: {
       type: DataTypes.STRING,
@@ -20,7 +19,7 @@ const Product = sequelize.define(
     },
     inPrice: {
       type: DataTypes.DECIMAL(10, 2),
-      allowNull: true,
+      allowNull: false,
     },
     price: {
       type: DataTypes.DECIMAL(10, 2),

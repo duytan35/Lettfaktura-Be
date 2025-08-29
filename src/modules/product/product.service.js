@@ -93,16 +93,6 @@ export default class ProductService {
   }
 
   async createProduct(productData) {
-    const existingProduct = await Product.findOne({
-      where: { articleNo: productData.articleNo },
-    });
-
-    if (existingProduct) {
-      throw new ConflictError(
-        `Product with article number ${productData.articleNo} already exists`
-      );
-    }
-
     const product = await Product.create(productData);
     return product;
   }
@@ -115,9 +105,9 @@ export default class ProductService {
 
     if (productData.articleNo && productData.articleNo !== product.articleNo) {
       const existingProduct = await Product.findOne({
-        where: { 
+        where: {
           articleNo: productData.articleNo,
-          id: { [Op.ne]: id }
+          id: { [Op.ne]: id },
         },
       });
 

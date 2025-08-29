@@ -12,8 +12,7 @@ module.exports = {
       },
       articleNo: {
         type: Sequelize.STRING(50),
-        allowNull: false,
-        unique: true,
+        allowNull: true,
       },
       name: {
         type: Sequelize.STRING(255),
@@ -25,7 +24,7 @@ module.exports = {
       },
       price: {
         type: Sequelize.DECIMAL(10, 2),
-        allowNull: true,
+        allowNull: false,
       },
       unit: {
         type: Sequelize.STRING(20),
