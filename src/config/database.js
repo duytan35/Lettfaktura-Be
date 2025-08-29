@@ -9,6 +9,15 @@ const sequelize = new Sequelize({
   username: config.DB_USER,
   password: config.DB_PASSWORD,
   dialect: "postgres",
+  dialectOptions:
+    NODE_ENV === "production"
+      ? {
+          ssl: {
+            require: true,
+            rejectUnauthorized: false,
+          },
+        }
+      : {},
   logging:
     config.NODE_ENV === "development" ? (msg) => logger.debug(msg) : false,
   pool: {
